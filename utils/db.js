@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-import MongoClient from 'mongodb';
+import { MongoClient } from 'mongodb';
 
 class DBClient {
   constructor() {
@@ -14,14 +14,14 @@ class DBClient {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
-    this.client.connect()
-      .then(() => {
+    (async () => {
+      try {
+        await this.client.connect();
         this.db = this.client.db(this.dbName);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error('Failed to connect to MongoDB', err);
-      });
+      }
+    })();
   }
 
   isAlive() {
