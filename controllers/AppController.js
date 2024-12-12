@@ -7,8 +7,8 @@ class AppControllers {
     res.json({ redis: redisClient.isAlive(), db: dbClient.isAlive() });
   }
 
-  static getStats(req, res) {
-    res.json({ users: dbClient.nbUsers(), files: dbClient.nbFiles() });
+  static async getStats(req, res) {
+    res.json({ users: await dbClient.nbUsers(), files: await dbClient.nbFiles() });
   }
 }
 
