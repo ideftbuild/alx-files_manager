@@ -33,7 +33,6 @@ class DBClient {
     try {
       return await this.db.collection('users').countDocuments();
     } catch (err) {
-      console.error(err);
       return 0;
     }
   }
@@ -43,7 +42,6 @@ class DBClient {
     try {
       return await this.db.collection('files').countDocuments();
     } catch (err) {
-      console.error(err);
       return 0;
     }
   }
