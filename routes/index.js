@@ -1,6 +1,6 @@
 #!/usr/bin/node
 import express from 'express';
-import AppControllers from '../controllers/AppControllers';
+import AppControllers from '../controllers/AppController';
 
 const router = express.Router();
 
